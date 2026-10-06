@@ -27,8 +27,6 @@ struct LegendView: View {
             .font(.caption2)
             .foregroundStyle(.secondary)
             .frame(maxWidth: .infinity, alignment: .trailing)
-            // The legend only explains colors; each day already reads its level to VoiceOver.
-            .accessibilityHidden(true)
         }
     }
 

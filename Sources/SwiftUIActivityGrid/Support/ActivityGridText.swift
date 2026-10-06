@@ -59,44 +59,12 @@ struct ActivityGridText {
         return String(localized: "\(number) activities", bundle: bundle, locale: locale, comment: "Default value text for a fractional number.")
     }
 
-    func level(_ level: Int, of count: Int) -> String {
-        String(localized: "Level \(level) of \(count)", bundle: bundle, locale: locale, comment: "VoiceOver: intensity level of a day.")
-    }
-
-    func weekLabel(for weekStart: Date) -> String {
-        let day = formatted(weekStart, template: "MMMMd")
-        return String(localized: "Week of \(day)", bundle: bundle, locale: locale, comment: "VoiceOver: label of a week column.")
-    }
-
     func tooltip(for date: Date, value: String) -> String {
         let day = mediumDate(date)
         return String(localized: "\(day) · \(value)", bundle: bundle, locale: locale, comment: "Tooltip text: date, then value.")
     }
 
-    /// "Activity, Mar 4, 2024 – Mar 4, 2025. 120 active days."
-    func summary(_ summary: ActivityGridSummary) -> String {
-        let formatter = DateIntervalFormatter()
-        formatter.calendar = calendar
-        formatter.locale = locale
-        formatter.timeZone = calendar.timeZone
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        let interval = formatter.string(from: summary.range.lowerBound, to: summary.range.upperBound)
-        let activeDays = summary.activeDays
-
-        let parts = [
-            String(localized: "Activity, \(interval)", bundle: bundle, locale: locale, comment: "VoiceOver summary: the date range shown."),
-            String(localized: "\(activeDays) active days", bundle: bundle, locale: locale, comment: "VoiceOver summary: days with activity."),
-        ]
-        return parts.joined(separator: ". ") + "."
-    }
-
     // MARK: Dates (names come from the system, in any locale and calendar)
-
-    /// "Tuesday, March 4, 2025"
-    func fullDate(_ date: Date) -> String {
-        formatted(date, template: "EEEEyMMMMd")
-    }
 
     /// "Mar 4, 2025"
     func mediumDate(_ date: Date) -> String {

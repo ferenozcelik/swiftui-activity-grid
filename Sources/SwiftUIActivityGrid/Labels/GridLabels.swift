@@ -11,7 +11,7 @@ struct MonthLabelView: View {
         if let monthStart {
             label(for: monthStart).gridLabelStyle()
         } else {
-            Color.clear.accessibilityHidden(true)
+            Color.clear
         }
     }
 
@@ -57,7 +57,6 @@ struct WeekdayLabelsView: View {
                     }
                 }
             }
-            .accessibilityHidden(true)
         }
     }
 
@@ -86,7 +85,6 @@ extension Text {
             .foregroundStyle(.secondary)
             .lineLimit(1)
             .fixedSize()
-            .accessibilityHidden(true)
     }
 }
 

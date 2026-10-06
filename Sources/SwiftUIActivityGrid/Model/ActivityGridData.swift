@@ -110,13 +110,4 @@ public struct ActivityGridData: Sendable, Equatable {
     func value(for key: DayKey) -> Double? {
         days[key]?.value
     }
-
-    /// The number of days in `range` with a value above zero.
-    func activeDays(in range: ClosedRange<Date>) -> Int {
-        let start = DayKey(range.lowerBound, calendar: calendar)
-        let end = DayKey(range.upperBound, calendar: calendar)
-        return days.reduce(0) { count, entry in
-            count + (entry.key >= start && entry.key <= end && entry.value.value > 0 ? 1 : 0)
-        }
-    }
 }

@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org). Before 1.0, minor versions may change the API.
 
+## [0.4.0] - 2026-10-06
+
+### Removed
+
+- All VoiceOver support: the day, week and grid labels, and the modifiers `activityGridAccessibilityLabel`,
+  `activityGridAccessibilityValue`, `activityGridAccessibilityWeekLabel` and `activityGridAccessibilitySummary`.
+  The type `ActivityGridSummary` is removed too.
+
 ## [0.3.0] - 2026-10-06
 
 ### Added

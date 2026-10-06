@@ -55,22 +55,6 @@ private struct ValueFormatterKey: EnvironmentKey {
     static var defaultValue: (@MainActor @Sendable (Double) -> String)? { nil }
 }
 
-private struct DayLabelKey: EnvironmentKey {
-    static var defaultValue: (@MainActor @Sendable (ActivityDay) -> Text)? { nil }
-}
-
-private struct DayAccessibilityValueKey: EnvironmentKey {
-    static var defaultValue: (@MainActor @Sendable (ActivityDay) -> Text)? { nil }
-}
-
-private struct WeekLabelKey: EnvironmentKey {
-    static var defaultValue: (@MainActor @Sendable (Date) -> Text)? { nil }
-}
-
-private struct SummaryKey: EnvironmentKey {
-    static var defaultValue: (@MainActor @Sendable (ActivityGridSummary) -> Text)? { nil }
-}
-
 extension EnvironmentValues {
     var activityGridStyle: AnyActivityGridStyle {
         get { self[StyleKey.self] }
@@ -137,25 +121,6 @@ extension EnvironmentValues {
         set { self[ValueFormatterKey.self] = newValue }
     }
 
-    var activityGridDayLabel: (@MainActor @Sendable (ActivityDay) -> Text)? {
-        get { self[DayLabelKey.self] }
-        set { self[DayLabelKey.self] = newValue }
-    }
-
-    var activityGridDayAccessibilityValue: (@MainActor @Sendable (ActivityDay) -> Text)? {
-        get { self[DayAccessibilityValueKey.self] }
-        set { self[DayAccessibilityValueKey.self] = newValue }
-    }
-
-    var activityGridWeekLabel: (@MainActor @Sendable (Date) -> Text)? {
-        get { self[WeekLabelKey.self] }
-        set { self[WeekLabelKey.self] = newValue }
-    }
-
-    var activityGridSummary: (@MainActor @Sendable (ActivityGridSummary) -> Text)? {
-        get { self[SummaryKey.self] }
-        set { self[SummaryKey.self] = newValue }
-    }
 }
 
 // MARK: - Modifiers
@@ -249,42 +214,11 @@ extension View {
         environment(\.activityGridTooltip, .custom(content))
     }
 
-    /// Sets how a value is written in the tooltip and read by VoiceOver, like "5 workouts" or "32 min".
+    /// Sets how a value is written in the tooltip, like "5 workouts" or "32 min".
     ///
-    /// Days without a value still use the "No activity" text; replace the tooltip or the
-    /// accessibility value to change that.
+    /// Days without a value still use the "No activity" text; replace the tooltip to change that.
     public func activityGridValueFormatter(_ format: @escaping @MainActor @Sendable (Double) -> String) -> some View {
         environment(\.activityGridValueFormatter, format)
     }
 
-    /// Replaces the VoiceOver label of each day. The default reads the full date,
-    /// like "Tuesday, March 4, 2025".
-    public func activityGridAccessibilityLabel(_ label: @escaping @MainActor @Sendable (ActivityDay) -> Text) -> some View {
-        environment(\.activityGridDayLabel, label)
-    }
-
-    /// Replaces the VoiceOver value of each day. The default reads the value and level,
-    /// like "5 activities, Level 3 of 4".
-    public func activityGridAccessibilityValue(_ value: @escaping @MainActor @Sendable (ActivityDay) -> Text) -> some View {
-        environment(\.activityGridDayAccessibilityValue, value)
-    }
-
-    /// Replaces the VoiceOver label of each week column. The closure gets the first day of the week.
-    /// The default reads "Week of March 3".
-    public func activityGridAccessibilityWeekLabel(_ label: @escaping @MainActor @Sendable (Date) -> Text) -> some View {
-        environment(\.activityGridWeekLabel, label)
-    }
-
-    /// Replaces the VoiceOver summary of the whole grid. The default reads the date range
-    /// and the number of active days, like "Activity, Mar 4, 2024 – Mar 4, 2025. 120 active days."
-    ///
-    /// ```swift
-    /// ActivityGrid(values)
-    ///     .activityGridAccessibilitySummary { summary in
-    ///         Text("Reading log, \(summary.activeDays) days read")
-    ///     }
-    /// ```
-    public func activityGridAccessibilitySummary(_ summary: @escaping @MainActor @Sendable (ActivityGridSummary) -> Text) -> some View {
-        environment(\.activityGridSummary, summary)
-    }
 }

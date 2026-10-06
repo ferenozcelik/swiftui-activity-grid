@@ -36,7 +36,6 @@ public struct ActivityGrid: View {
     @Environment(\.activityGridTooltip) private var tooltip
     @Environment(\.activityGridNow) private var pinnedNow
     @Environment(\.activityGridTapAction) private var tapAction
-    @Environment(\.activityGridSummary) private var summary
     @Environment(\.activityGridValueFormatter) private var valueFormatter
     @Environment(\.locale) private var locale
     @Environment(\.colorScheme) private var colorScheme
@@ -93,8 +92,6 @@ public struct ActivityGrid: View {
                 TooltipOverlay(anchor: anchor, day: day, tooltip: tooltip, grid: grid, valueFormatter: valueFormatter)
             }
         }
-        .accessibilityElement(children: .contain)
-        .accessibilityLabel(summaryText(for: grid))
         .onReceive(dayChanges) { _ in systemNow = Date() }
     }
 
@@ -155,15 +152,6 @@ public struct ActivityGrid: View {
             internalSelection = newValue
         }
         tapAction?(day)
-    }
-
-    // MARK: - Accessibility
-
-    private func summaryText(for grid: ResolvedGrid) -> Text {
-        if let summary {
-            return summary(grid.summary)
-        }
-        return Text(grid.text.summary(grid.summary))
     }
 
     /// Fires when the day changes or the device moves to another time zone, so "today" stays right.

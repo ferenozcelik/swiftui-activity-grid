@@ -2,7 +2,7 @@ import Foundation
 
 /// One day shown in an ``ActivityGrid``.
 ///
-/// Passed to styles, tap actions, tooltips and accessibility overrides.
+/// Passed to styles, tap actions, and tooltips.
 public struct ActivityDay: Hashable, Identifiable, Sendable {
     /// The start of the day in the grid's calendar.
     public let date: Date

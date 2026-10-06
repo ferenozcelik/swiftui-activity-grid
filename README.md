@@ -193,8 +193,6 @@ The app also has pages for styles, colors, shapes and sizes, ranges, labels and 
 
 The DocC docs are in `Sources/SwiftUIActivityGrid/SwiftUIActivityGrid.docc`. In Xcode, choose **Product → Build Documentation**.
 
-VoiceOver is supported.
-
 ## Contributing
 
 Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).

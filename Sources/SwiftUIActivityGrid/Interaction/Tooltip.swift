@@ -32,9 +32,6 @@ struct TooltipOverlay: View {
                 }
             }
         }
-        // The selected day already reads its date and value to VoiceOver, and the bubble
-        // must never take taps away from the cells under it.
-        .accessibilityHidden(true)
         .allowsHitTesting(false)
     }
 

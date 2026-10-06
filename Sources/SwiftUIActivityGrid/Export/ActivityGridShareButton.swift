@@ -149,7 +149,6 @@ struct EnvironmentSnapshot: @unchecked Sendable {
     var legend: ActivityGridLegend
     var now: Date?
     var valueFormatter: (@MainActor @Sendable (Double) -> String)?
-    var summary: (@MainActor @Sendable (ActivityGridSummary) -> Text)?
     var locale: Locale
     var dynamicTypeSize: DynamicTypeSize
 
@@ -165,7 +164,6 @@ struct EnvironmentSnapshot: @unchecked Sendable {
             .environment(\.activityGridLegend, legend)
             .environment(\.activityGridNow, now)
             .environment(\.activityGridValueFormatter, valueFormatter)
-            .environment(\.activityGridSummary, summary)
             .environment(\.locale, locale)
             .environment(\.dynamicTypeSize, dynamicTypeSize)
     }
@@ -184,7 +182,6 @@ private struct EnvironmentSnapshotReader<Content: View>: View {
     @Environment(\.activityGridLegend) private var legend
     @Environment(\.activityGridNow) private var now
     @Environment(\.activityGridValueFormatter) private var valueFormatter
-    @Environment(\.activityGridSummary) private var summary
     @Environment(\.locale) private var locale
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.colorScheme) private var colorScheme
@@ -194,7 +191,7 @@ private struct EnvironmentSnapshotReader<Content: View>: View {
             EnvironmentSnapshot(
                 style: style, palette: palette, mapping: mapping, calendar: calendar, firstWeekday: firstWeekday,
                 monthLabels: monthLabels, weekdayLabels: weekdayLabels, legend: legend, now: now,
-                valueFormatter: valueFormatter, summary: summary, locale: locale, dynamicTypeSize: dynamicTypeSize
+                valueFormatter: valueFormatter, locale: locale, dynamicTypeSize: dynamicTypeSize
             ),
             colorScheme
         )

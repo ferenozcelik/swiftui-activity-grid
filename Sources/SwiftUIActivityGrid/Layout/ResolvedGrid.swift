@@ -28,8 +28,6 @@ struct ResolvedGrid {
     let text: ActivityGridText
     let selectedKey: DayKey?
     let todayWeekID: DayKey?
-    /// The shown range and its active days, for the VoiceOver summary.
-    let summary: ActivityGridSummary
 
     init(
         data: ActivityGridData,
@@ -72,7 +70,6 @@ struct ResolvedGrid {
         self.text = ActivityGridText(calendar: calendar)
         selectedKey = selection.map { DayKey($0, calendar: calendar) }
         todayWeekID = layout.todayWeekIndex.map { layout.weeks[$0].key }
-        summary = ActivityGridSummary(range: self.range, activeDays: data.activeDays(in: self.range))
     }
 
     /// The selected day, if it is visible in this grid.

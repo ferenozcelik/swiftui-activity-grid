@@ -1,35 +1,35 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "Less": {
-      "comment": "Legend label before the lightest color.",
-      "extractionState": "manual"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Less" : {
+      "comment" : "Legend label before the lightest color.",
+      "extractionState" : "manual"
     },
-    "More": {
-      "comment": "Legend label after the darkest color.",
-      "extractionState": "manual"
+    "More" : {
+      "comment" : "Legend label after the darkest color.",
+      "extractionState" : "manual"
     },
-    "No activity": {
-      "comment": "Value of a day without activity, in the tooltip and VoiceOver.",
-      "extractionState": "manual"
+    "No activity" : {
+      "comment" : "Value of a day without activity, in the tooltip.",
+      "extractionState" : "manual"
     },
-    "%lld activities": {
-      "comment": "Default value text for a whole number. Neutral noun, not tied to a specific kind of activity.",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld activity"
+    "%lld activities" : {
+      "comment" : "Default value text for a whole number. Neutral noun, not tied to a specific kind of activity.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld activity"
                 }
               },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld activities"
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld activities"
                 }
               }
             }
@@ -37,50 +37,14 @@
         }
       }
     },
-    "%@ activities": {
-      "comment": "Default value text for a fractional number, e.g. 2.5.",
-      "extractionState": "manual"
+    "%@ activities" : {
+      "comment" : "Default value text for a fractional number, e.g. 2.5.",
+      "extractionState" : "manual"
     },
-    "Level %lld of %lld": {
-      "comment": "VoiceOver: intensity level of a day, e.g. Level 3 of 4.",
-      "extractionState": "manual"
-    },
-    "Week of %@": {
-      "comment": "VoiceOver: label of a week column. The argument is the first day of the week.",
-      "extractionState": "manual"
-    },
-    "Activity, %@": {
-      "comment": "VoiceOver summary: the argument is the date range shown.",
-      "extractionState": "manual"
-    },
-    "%lld active days": {
-      "comment": "VoiceOver summary: number of days with activity.",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld active day"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld active days"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "%@ · %@": {
-      "comment": "Tooltip text: date, then value. Example: Mar 4, 2025 · 5 activities.",
-      "extractionState": "manual"
+    "%@ · %@" : {
+      "comment" : "Tooltip text: date, then value. Example: Mar 4, 2025 · 5 activities.",
+      "extractionState" : "manual"
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

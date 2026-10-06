@@ -9,16 +9,12 @@ struct WeekColumnView: View {
     let grid: ResolvedGrid
     let onTap: (ActivityDay) -> Void
 
-    @Environment(\.activityGridWeekLabel) private var weekLabel
-
     var body: some View {
         WeekColumnLayout(spacingRatio: grid.metrics.spacing / grid.metrics.cellSize) {
             ForEach(week.cells) { cell in
                 DayCellView(cell: cell, grid: grid, onTap: onTap)
             }
         }
-        .accessibilityElement(children: .contain)
-        .accessibilityLabel(weekLabel?(week.start) ?? Text(grid.text.weekLabel(for: week.start)))
     }
 }
 
@@ -49,15 +45,11 @@ struct WeekColumnLayout: Layout {
     }
 }
 
-/// One day: the style's cell, plus tapping, selection and accessibility.
+/// One day: the style's cell, plus tapping and selection.
 struct DayCellView: View {
     let cell: ResolvedGrid.Cell
     let grid: ResolvedGrid
     let onTap: (ActivityDay) -> Void
-
-    @Environment(\.activityGridDayLabel) private var dayLabel
-    @Environment(\.activityGridDayAccessibilityValue) private var customValue
-    @Environment(\.activityGridValueFormatter) private var valueFormatter
 
     var body: some View {
         if cell.isVisible {
@@ -72,22 +64,11 @@ struct DayCellView: View {
             .contentShape(Rectangle())
             .onTapGesture { onTap(cell.day) }
             .anchorPreference(key: SelectedCellAnchorKey.self, value: .bounds) { isSelected ? $0 : nil }
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel(dayLabel?(cell.day) ?? Text(grid.text.fullDate(cell.day.date)))
-            .accessibilityValue(customValue?(cell.day) ?? Text(defaultAccessibilityValue))
-            .accessibilityAddTraits(isSelected ? [.isButton, .isSelected] : .isButton)
         } else {
             Color.clear
-                .accessibilityHidden(true)
         }
     }
 
-    /// "5 activities, Level 3 of 4", or "No activity".
-    private var defaultAccessibilityValue: String {
-        let value = grid.text.value(cell.day.value, formatter: valueFormatter)
-        guard cell.day.level > 0 else { return value }
-        return value + ", " + grid.text.level(cell.day.level, of: cell.day.levelCount)
-    }
 }
 
 /// The style's view of a day. Equatable, so cells whose day, color and selection didn't
