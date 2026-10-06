@@ -73,25 +73,21 @@ struct ActivityGridText {
         return String(localized: "\(day) · \(value)", bundle: bundle, locale: locale, comment: "Tooltip text: date, then value.")
     }
 
-    func summary(range: ClosedRange<Date>, activeDays: Int, statistics: ActivityStatistics) -> String {
+    /// "Activity, Mar 4, 2024 – Mar 4, 2025. 120 active days."
+    func summary(_ summary: ActivityGridSummary) -> String {
         let formatter = DateIntervalFormatter()
         formatter.calendar = calendar
         formatter.locale = locale
         formatter.timeZone = calendar.timeZone
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
-        let interval = formatter.string(from: range.lowerBound, to: range.upperBound)
+        let interval = formatter.string(from: summary.range.lowerBound, to: summary.range.upperBound)
+        let activeDays = summary.activeDays
 
-        var parts = [
+        let parts = [
             String(localized: "Activity, \(interval)", bundle: bundle, locale: locale, comment: "VoiceOver summary: the date range shown."),
             String(localized: "\(activeDays) active days", bundle: bundle, locale: locale, comment: "VoiceOver summary: days with activity."),
         ]
-        if let current = statistics.currentStreak {
-            parts.append(String(localized: "Current streak: \(current.length) days", bundle: bundle, locale: locale, comment: "VoiceOver summary: current streak length."))
-        }
-        if let longest = statistics.longestStreak {
-            parts.append(String(localized: "Longest streak: \(longest.length) days", bundle: bundle, locale: locale, comment: "VoiceOver summary: longest streak length."))
-        }
         return parts.joined(separator: ". ") + "."
     }
 

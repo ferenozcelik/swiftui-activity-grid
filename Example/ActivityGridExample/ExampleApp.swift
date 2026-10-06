@@ -48,9 +48,6 @@ struct ExampleList: View {
                 NavigationLink { OwnStylePage() } label: {
                     ExampleRow("Your own style", detail: "Custom cells and colors", symbol: "wand.and.stars", tint: .indigo)
                 }
-                NavigationLink { StreaksPage() } label: {
-                    ExampleRow("Streaks", detail: "Streaks and totals", symbol: "flame.fill", tint: .yellow)
-                }
             }
         }
         .navigationTitle("ActivityGrid")

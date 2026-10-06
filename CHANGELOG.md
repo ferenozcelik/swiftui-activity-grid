@@ -4,6 +4,18 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org). Before 1.0, minor versions may change the API.
 
+## [0.2.0] - 2026-10-06
+
+### Removed
+
+- `ActivityStatistics` and `Streak`.
+
+### Changed
+
+- The accessibility summary override `activityGridAccessibilitySummary` no longer takes `ActivityStatistics`.
+  It gets an `ActivityGridSummary` with the shown range and the number of active days.
+- The default VoiceOver summary reads only the date range and the number of active days.
+
 ## [0.1.1] - 2026-10-06
 
 ### Changed
@@ -29,5 +41,6 @@ First public preview.
 - Example app with showcase pages and a playground.
 - Privacy manifest with no data collection.
 
+[0.2.0]: https://github.com/ferenozcelik/swiftui-activity-grid/releases/tag/0.2.0
 [0.1.1]: https://github.com/ferenozcelik/swiftui-activity-grid/releases/tag/0.1.1
 [0.1.0]: https://github.com/ferenozcelik/swiftui-activity-grid/releases/tag/0.1.0

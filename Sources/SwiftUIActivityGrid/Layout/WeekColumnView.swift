@@ -56,7 +56,7 @@ struct DayCellView: View {
     let onTap: (ActivityDay) -> Void
 
     @Environment(\.activityGridDayLabel) private var dayLabel
-    @Environment(\.activityGridDayValue) private var dayValue
+    @Environment(\.activityGridDayAccessibilityValue) private var customValue
     @Environment(\.activityGridValueFormatter) private var valueFormatter
 
     var body: some View {
@@ -74,7 +74,7 @@ struct DayCellView: View {
             .anchorPreference(key: SelectedCellAnchorKey.self, value: .bounds) { isSelected ? $0 : nil }
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(dayLabel?(cell.day) ?? Text(grid.text.fullDate(cell.day.date)))
-            .accessibilityValue(dayValue?(cell.day) ?? Text(defaultAccessibilityValue))
+            .accessibilityValue(customValue?(cell.day) ?? Text(defaultAccessibilityValue))
             .accessibilityAddTraits(isSelected ? [.isButton, .isSelected] : .isButton)
         } else {
             Color.clear

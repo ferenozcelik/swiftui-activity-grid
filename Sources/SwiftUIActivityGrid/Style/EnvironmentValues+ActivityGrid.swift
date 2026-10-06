@@ -59,7 +59,7 @@ private struct DayLabelKey: EnvironmentKey {
     static var defaultValue: (@MainActor @Sendable (ActivityDay) -> Text)? { nil }
 }
 
-private struct DayValueKey: EnvironmentKey {
+private struct DayAccessibilityValueKey: EnvironmentKey {
     static var defaultValue: (@MainActor @Sendable (ActivityDay) -> Text)? { nil }
 }
 
@@ -68,7 +68,7 @@ private struct WeekLabelKey: EnvironmentKey {
 }
 
 private struct SummaryKey: EnvironmentKey {
-    static var defaultValue: (@MainActor @Sendable (ActivityStatistics) -> Text)? { nil }
+    static var defaultValue: (@MainActor @Sendable (ActivityGridSummary) -> Text)? { nil }
 }
 
 extension EnvironmentValues {
@@ -142,9 +142,9 @@ extension EnvironmentValues {
         set { self[DayLabelKey.self] = newValue }
     }
 
-    var activityGridDayValue: (@MainActor @Sendable (ActivityDay) -> Text)? {
-        get { self[DayValueKey.self] }
-        set { self[DayValueKey.self] = newValue }
+    var activityGridDayAccessibilityValue: (@MainActor @Sendable (ActivityDay) -> Text)? {
+        get { self[DayAccessibilityValueKey.self] }
+        set { self[DayAccessibilityValueKey.self] = newValue }
     }
 
     var activityGridWeekLabel: (@MainActor @Sendable (Date) -> Text)? {
@@ -152,7 +152,7 @@ extension EnvironmentValues {
         set { self[WeekLabelKey.self] = newValue }
     }
 
-    var activityGridSummary: (@MainActor @Sendable (ActivityStatistics) -> Text)? {
+    var activityGridSummary: (@MainActor @Sendable (ActivityGridSummary) -> Text)? {
         get { self[SummaryKey.self] }
         set { self[SummaryKey.self] = newValue }
     }
@@ -266,7 +266,7 @@ extension View {
     /// Replaces the VoiceOver value of each day. The default reads the value and level,
     /// like "5 activities, Level 3 of 4".
     public func activityGridAccessibilityValue(_ value: @escaping @MainActor @Sendable (ActivityDay) -> Text) -> some View {
-        environment(\.activityGridDayValue, value)
+        environment(\.activityGridDayAccessibilityValue, value)
     }
 
     /// Replaces the VoiceOver label of each week column. The closure gets the first day of the week.
@@ -275,9 +275,16 @@ extension View {
         environment(\.activityGridWeekLabel, label)
     }
 
-    /// Replaces the VoiceOver summary of the whole grid. The default reads the date range,
-    /// active days, current streak and longest streak.
-    public func activityGridAccessibilitySummary(_ summary: @escaping @MainActor @Sendable (ActivityStatistics) -> Text) -> some View {
+    /// Replaces the VoiceOver summary of the whole grid. The default reads the date range
+    /// and the number of active days, like "Activity, Mar 4, 2024 – Mar 4, 2025. 120 active days."
+    ///
+    /// ```swift
+    /// ActivityGrid(values)
+    ///     .activityGridAccessibilitySummary { summary in
+    ///         Text("Reading log, \(summary.activeDays) days read")
+    ///     }
+    /// ```
+    public func activityGridAccessibilitySummary(_ summary: @escaping @MainActor @Sendable (ActivityGridSummary) -> Text) -> some View {
         environment(\.activityGridSummary, summary)
     }
 }

@@ -111,8 +111,12 @@ public struct ActivityGridData: Sendable, Equatable {
         days[key]?.value
     }
 
-    /// Days in chronological order.
-    var sortedDays: [(key: DayKey, day: Day)] {
-        days.sorted { $0.key < $1.key }.map { (key: $0.key, day: $0.value) }
+    /// The number of days in `range` with a value above zero.
+    func activeDays(in range: ClosedRange<Date>) -> Int {
+        let start = DayKey(range.lowerBound, calendar: calendar)
+        let end = DayKey(range.upperBound, calendar: calendar)
+        return days.reduce(0) { count, entry in
+            count + (entry.key >= start && entry.key <= end && entry.value.value > 0 ? 1 : 0)
+        }
     }
 }

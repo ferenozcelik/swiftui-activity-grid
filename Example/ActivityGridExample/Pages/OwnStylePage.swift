@@ -55,7 +55,6 @@ struct HabitCard: View {
     }
 
     var body: some View {
-        let stats = ActivityStatistics(ActivityGridData(values))
         VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 12) {
                 Image(systemName: "book.fill")
@@ -64,7 +63,7 @@ struct HabitCard: View {
                     .background(.white.opacity(0.2), in: Circle())
                 VStack(alignment: .leading, spacing: 1) {
                     Text("Reading").font(.headline)
-                    Text("\(stats.currentStreak?.length ?? 0) day streak").font(.caption).opacity(0.8)
+                    Text("\(SampleData.recentRun) day streak").font(.caption).opacity(0.8)
                 }
                 Spacer()
             }

@@ -161,9 +161,9 @@ public struct ActivityGrid: View {
 
     private func summaryText(for grid: ResolvedGrid) -> Text {
         if let summary {
-            return summary(grid.statistics)
+            return summary(grid.summary)
         }
-        return Text(grid.text.summary(range: grid.range, activeDays: grid.activeDaysInRange, statistics: grid.statistics))
+        return Text(grid.text.summary(grid.summary))
     }
 
     /// Fires when the day changes or the device moves to another time zone, so "today" stays right.

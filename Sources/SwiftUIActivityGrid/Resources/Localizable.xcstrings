@@ -77,54 +77,6 @@
         }
       }
     },
-    "Current streak: %lld days": {
-      "comment": "VoiceOver summary: current streak length.",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "Current streak: %lld day"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "Current streak: %lld days"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "Longest streak: %lld days": {
-      "comment": "VoiceOver summary: longest streak length.",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "Longest streak: %lld day"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "Longest streak: %lld days"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "%@ · %@": {
       "comment": "Tooltip text: date, then value. Example: Mar 4, 2025 · 5 activities.",
       "extractionState": "manual"

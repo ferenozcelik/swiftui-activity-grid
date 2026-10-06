@@ -96,5 +96,3 @@ That's quick for a year or two. With more, build the data once and keep it:
 let data = ActivityGridData(minutesByDay, calendar: calendar)
 ActivityGrid(data, range: .lastYear)
 ```
-
-The same data gives you streaks and totals through ``ActivityStatistics``.

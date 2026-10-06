@@ -2,7 +2,7 @@ import XCTest
 @testable import SwiftUIActivityGrid
 
 final class ActivityGridDataTests: XCTestCase {
-    func testSameDayValuesAreSummed() {
+    func testValuesOnTheSameDayAreSummed() {
         let calendar = makeCalendar()
         let data = ActivityGridData([
             date(2025, 3, 4, 0, 5, in: calendar): 2,

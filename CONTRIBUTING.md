@@ -18,7 +18,7 @@ Thanks for helping out. Bug reports, fixes and ideas are all welcome.
 - **Every new visible or spoken text needs a default and a way to replace it.** Add the English text to
   `Resources/Localizable.xcstrings`, and give host apps a modifier or parameter to supply their own.
 - **iOS 16 first.** Newer APIs go behind `#available` with a fallback.
-- **Tests stay light.** Test pure logic (data, layout, levels, statistics). Tests must not touch the pasteboard or other system services.
+- **Tests stay light.** Test pure logic (data, layout, levels, texts). Tests must not touch the pasteboard or other system services.
 - Public API needs `///` documentation.
 
 ## Pull requests

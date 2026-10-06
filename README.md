@@ -13,7 +13,7 @@ A heatmap for SwiftUI. Show a year of daily activity at a glance: workouts, habi
 Make it look like your app. Pick the colors, the cell shape and size, or draw your own cells.
 
 <p align="center">
-  <img src="Docs/Images/your-own-style.png" width="260" alt="A card with a purple gradient and a grid of white dots, titled Reading, 23 day streak">
+  <img src="Docs/Images/your-own-style.png" width="260" alt="A card with a purple gradient and a grid of white dots, titled Reading">
   <img src="Docs/Images/colors.png" width="260" alt="Eight color palettes and a gradient, each showing the same grid">
   <img src="Docs/Images/styles.png" width="260" alt="Built-in styles: squares, rounded, circles, minimal and a custom mix">
 </p>
@@ -27,7 +27,6 @@ Make it look like your app. Pick the colors, the cell shape and size, or draw yo
 - Draw your own cells with `ActivityGridStyle`.
 - Tap a day to select it and see a tooltip.
 - Scroll, or fit all weeks to the width.
-- Streaks and totals with `ActivityStatistics`.
 - No dependencies. No network. Nothing is stored.
 
 ## Customizable
@@ -159,6 +158,10 @@ ActivityGrid(values)
     .activityGridCalendar(calendar)
 ```
 
+### Years of data
+
+Build `ActivityGridData` once and pass it to `ActivityGrid(data)`.
+
 ## Playground
 
 The example app has a Playground page. Change options with controls. The page shows the Swift code for them. Copy the code into your app.
@@ -171,27 +174,7 @@ The example app has a Playground page. Change options with controls. The page sh
 2. Run the `ActivityGridExample` scheme.
 3. Open **Playground**.
 
-The app also has pages for styles, colors, shapes and sizes, ranges, labels and legend, your own style, and streaks.
-
-## Streaks and totals
-
-```swift
-let data = ActivityGridData(minutesByDay)
-let stats = ActivityStatistics(data)
-
-stats.currentStreak?.length   // today's streak, or yesterday's if today is still empty
-stats.longestStreak?.length
-stats.activeDays
-stats.total
-```
-
-Works without the view, for example in a widget.
-
-<p align="center">
-  <img src="Docs/Images/streaks.png" width="260" alt="Streak, active days and total tiles above a grid, with the code that reads them">
-</p>
-
-With years of data, build `ActivityGridData` once and pass it to `ActivityGrid(data)`.
+The app also has pages for styles, colors, shapes and sizes, ranges, labels and legend, and your own style.
 
 ## Documentation
 

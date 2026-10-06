@@ -8,7 +8,6 @@ A heatmap of daily values for SwiftUI.
 You pass in the values. The grid stores nothing and makes no network calls.
 
 Change colors, cell shape, size, spacing and labels, or write your own cell style.
-Streaks and totals are built in.
 
 ## Topics
 
@@ -23,11 +22,6 @@ Streaks and totals are built in.
 - ``ActivityEntry``
 - ``ActivityGridData``
 - ``ActivityDay``
-
-### Statistics
-
-- ``ActivityStatistics``
-- ``Streak``
 
 ### Colors and levels
 
