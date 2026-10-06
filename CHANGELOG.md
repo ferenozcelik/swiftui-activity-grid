@@ -4,6 +4,16 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org). Before 1.0, minor versions may change the API.
 
+## [0.5.0] - 2026-10-06
+
+### Changed
+
+- Export is PNG only. `pdfData` and `ActivityGridExportFileType` are removed.
+
+### Added
+
+- `ActivityGridShareCard(gridAlignment:)` puts the grid at the top, center or bottom of the card.
+
 ## [0.4.0] - 2026-10-06
 
 ### Removed

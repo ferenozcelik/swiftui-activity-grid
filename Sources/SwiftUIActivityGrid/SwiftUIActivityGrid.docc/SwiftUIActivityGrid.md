@@ -46,7 +46,6 @@ Change colors, cell shape, size, spacing and labels, or write your own cell styl
 - ``ActivityGridShareCard``
 - ``ActivityGridExporter``
 - ``ActivityGridShareFormat``
-- ``ActivityGridExportFileType``
 
 ### Layout and labels
 

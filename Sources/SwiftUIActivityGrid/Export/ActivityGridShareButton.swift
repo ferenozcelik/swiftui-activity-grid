@@ -2,12 +2,6 @@ import SwiftUI
 import CoreTransferable
 import UniformTypeIdentifiers
 
-/// The file type of a shared image.
-public enum ActivityGridExportFileType: Sendable {
-    case png
-    case pdf
-}
-
 /// A button that opens the share sheet with an image of a card.
 ///
 /// Nothing is shown unless you add this button. The image is made only when the person picks a
@@ -26,7 +20,6 @@ public enum ActivityGridExportFileType: Sendable {
 public struct ActivityGridShareButton<Label: View, Card: View>: View {
     private let fileName: String
     private let format: ActivityGridShareFormat
-    private let fileType: ActivityGridExportFileType
     private let colorScheme: ColorScheme?
     private let card: @MainActor () -> Card
     private let label: Label
@@ -36,21 +29,18 @@ public struct ActivityGridShareButton<Label: View, Card: View>: View {
     /// - Parameters:
     ///   - fileName: The name shown in the share sheet and given to the file.
     ///   - format: Size of the image. It must match the card's format.
-    ///   - fileType: PNG (default) or PDF.
     ///   - colorScheme: Force light or dark. The default follows the current appearance.
     ///   - card: The card to export.
     ///   - label: The button's label.
     public init(
         fileName: String,
         format: ActivityGridShareFormat = .square,
-        fileType: ActivityGridExportFileType = .png,
         colorScheme: ColorScheme? = nil,
         @ViewBuilder card: @escaping @MainActor () -> Card,
         @ViewBuilder label: () -> Label
     ) {
         self.fileName = fileName
         self.format = format
-        self.fileType = fileType
         self.colorScheme = colorScheme
         self.card = card
         self.label = label()
@@ -62,14 +52,8 @@ public struct ActivityGridShareButton<Label: View, Card: View>: View {
             let (card, format) = (self.card, self.format)
             let render = Renderer(
                 png: { ActivityGridExporter.pngData(snapshot.apply(to: card()), format: format, colorScheme: scheme) },
-                pdf: { ActivityGridExporter.pdfData(snapshot.apply(to: card()), format: format, colorScheme: scheme) }
             )
-            switch fileType {
-            case .png:
-                ShareLink(item: ActivityGridPNGFile(name: fileName, render: render), preview: SharePreview(fileName)) { label }
-            case .pdf:
-                ShareLink(item: ActivityGridPDFFile(name: fileName, render: render), preview: SharePreview(fileName)) { label }
-            }
+            ShareLink(item: ActivityGridPNGFile(name: fileName, render: render), preview: SharePreview(fileName)) { label }
         }
     }
 }
@@ -80,11 +64,10 @@ extension ActivityGridShareButton where Label == SwiftUI.Label<Text, Image> {
         _ title: LocalizedStringKey,
         fileName: String,
         format: ActivityGridShareFormat = .square,
-        fileType: ActivityGridExportFileType = .png,
         colorScheme: ColorScheme? = nil,
         @ViewBuilder card: @escaping @MainActor () -> Card
     ) {
-        self.init(fileName: fileName, format: format, fileType: fileType, colorScheme: colorScheme, card: card) {
+        self.init(fileName: fileName, format: format, colorScheme: colorScheme, card: card) {
             SwiftUI.Label(title, systemImage: "square.and.arrow.up")
         }
     }
@@ -104,7 +87,6 @@ private func temporaryFile(named name: String, extension ext: String, data: Data
 /// Renders on the main actor when the share sheet asks for the file.
 struct Renderer: @unchecked Sendable {
     let png: @MainActor () -> Data?
-    let pdf: @MainActor () -> Data?
 }
 
 private struct ExportFailed: Error {}
@@ -118,19 +100,6 @@ struct ActivityGridPNGFile: Transferable {
             let data = await MainActor.run { item.render.png() }
             guard let data else { throw ExportFailed() }
             return try temporaryFile(named: item.name, extension: "png", data: data)
-        }
-    }
-}
-
-struct ActivityGridPDFFile: Transferable {
-    let name: String
-    let render: Renderer
-
-    static var transferRepresentation: some TransferRepresentation {
-        FileRepresentation(exportedContentType: .pdf) { item in
-            let data = await MainActor.run { item.render.pdf() }
-            guard let data else { throw ExportFailed() }
-            return try temporaryFile(named: item.name, extension: "pdf", data: data)
         }
     }
 }

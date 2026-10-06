@@ -14,7 +14,8 @@ import SwiftUI
 /// }
 /// ```
 ///
-/// The grid inside is always shown in the `.fit` display mode so that the whole range is visible.
+/// The grid inside is always shown in the `.fit` display mode, because an image can't scroll.
+/// To make cells bigger, show fewer weeks, like `.lastMonths(3)`.
 /// The card adds nothing of its own: no logo and no watermark.
 public struct ActivityGridShareCard<Grid: View>: View {
     private let format: ActivityGridShareFormat
@@ -22,6 +23,7 @@ public struct ActivityGridShareCard<Grid: View>: View {
     private let subtitle: Text?
     private let footer: Text?
     private let background: AnyShapeStyle?
+    private let gridAlignment: VerticalAlignment
     private let grid: Grid
 
     @Environment(\.colorScheme) private var colorScheme
@@ -31,6 +33,8 @@ public struct ActivityGridShareCard<Grid: View>: View {
     ///   - title: Large text above the grid.
     ///   - subtitle: Smaller text under the title.
     ///   - footer: Small text at the bottom, like your app's name or web address.
+    ///   - gridAlignment: Where the grid sits between the title and the footer: `.top`, `.center` (default)
+    ///     or `.bottom`. It matters for tall formats like ``ActivityGridShareFormat/story``.
     ///   - background: Color or gradient behind the card. The default is white in light mode and
     ///     near black in dark mode. Pass `Color.clear` for a transparent PNG.
     ///   - grid: The grid to show.
@@ -39,6 +43,7 @@ public struct ActivityGridShareCard<Grid: View>: View {
         title: Text? = nil,
         subtitle: Text? = nil,
         footer: Text? = nil,
+        gridAlignment: VerticalAlignment = .center,
         background: Background,
         @ViewBuilder grid: () -> Grid
     ) {
@@ -47,6 +52,7 @@ public struct ActivityGridShareCard<Grid: View>: View {
         self.subtitle = subtitle
         self.footer = footer
         self.background = AnyShapeStyle(background)
+        self.gridAlignment = gridAlignment
         self.grid = grid()
     }
 
@@ -56,6 +62,7 @@ public struct ActivityGridShareCard<Grid: View>: View {
         title: Text? = nil,
         subtitle: Text? = nil,
         footer: Text? = nil,
+        gridAlignment: VerticalAlignment = .center,
         @ViewBuilder grid: () -> Grid
     ) {
         self.format = format
@@ -63,6 +70,7 @@ public struct ActivityGridShareCard<Grid: View>: View {
         self.subtitle = subtitle
         self.footer = footer
         self.background = nil
+        self.gridAlignment = gridAlignment
         self.grid = grid()
     }
 
@@ -75,10 +83,10 @@ public struct ActivityGridShareCard<Grid: View>: View {
                 }
                 .padding(.bottom, 16)
             }
-            if format.height != nil { Spacer(minLength: 0) }
+            if format.height != nil, gridAlignment != .top { Spacer(minLength: 0) }
             grid
                 .activityGridDisplayMode(.fit)
-            if format.height != nil { Spacer(minLength: 0) }
+            if format.height != nil, gridAlignment != .bottom { Spacer(minLength: 0) }
             if let footer {
                 footer
                     .font(.footnote)

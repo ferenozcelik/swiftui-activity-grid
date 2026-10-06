@@ -25,9 +25,4 @@ final class ExportTests: XCTestCase {
         XCTAssertEqual(image.width, 1080)
         XCTAssertEqual(image.height, 1080)
     }
-
-    func testPDFIsAPDF() throws {
-        let data = try XCTUnwrap(ActivityGridExporter.pdfData(card(.landscape), format: .landscape))
-        XCTAssertEqual(String(decoding: data.prefix(4), as: UTF8.self), "%PDF")
-    }
 }

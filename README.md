@@ -27,7 +27,7 @@ Make it look like your app. Pick the colors, the cell shape and size, or draw yo
 - Draw your own cells with `ActivityGridStyle`.
 - Tap a day to select it and see a tooltip.
 - Scroll, or fit all weeks to the width.
-- Export a card as PNG or PDF to share on social media.
+- Export a card as PNG image to share on social media.
 - No dependencies. No network. Nothing is stored.
 
 ## Customizable
@@ -159,9 +159,9 @@ ActivityGridShareButton("Share", fileName: "My year", format: .story) {
 }
 ```
 
-Formats: `.story` (1080×1920), `.square` (1080×1080), `.landscape` (1600×900), `.fitContent()` and `.custom(size:)`. Pass `fileType: .pdf` for a PDF.
+Formats: `.story` (1080×1920), `.square` (1080×1080), `.landscape` (1600×900), `.fitContent()` and `.custom(size:)`.
 The image is made on the device. The card has no logo and no watermark.
-To get the data yourself, use `ActivityGridExporter.pngData(_:format:)` or `pdfData`.
+To get the data yourself, use `ActivityGridExporter.pngData(_:format:)`.
 
 ### Data saved in UTC
 
