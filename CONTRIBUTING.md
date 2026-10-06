@@ -25,4 +25,3 @@ Thanks for helping out. Bug reports, fixes and ideas are all welcome.
 
 - Keep each pull request to one topic.
 - Describe what changed and how you checked it, including screenshots for visual changes.
-- Add an entry to `CHANGELOG.md`.
