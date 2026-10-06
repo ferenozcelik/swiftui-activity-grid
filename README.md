@@ -6,6 +6,8 @@
 ![watchOS 9+](https://img.shields.io/badge/watchOS-9%2B-blue)
 ![Swift 6](https://img.shields.io/badge/Swift-6-orange)
 ![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen)
+[![Swift versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fferenozcelik%2Fswiftui-activity-grid%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ferenozcelik/swiftui-activity-grid)
+[![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fferenozcelik%2Fswiftui-activity-grid%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/ferenozcelik/swiftui-activity-grid)
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 A heatmap for SwiftUI. Show a year of daily activity at a glance: workouts, habits, journal entries, anything you count per day.
@@ -60,6 +62,8 @@ In Xcode, choose **File → Add Package Dependencies…** and paste this URL:
 ```
 https://github.com/ferenozcelik/swiftui-activity-grid
 ```
+
+Also listed on the [Swift Package Index](https://swiftpackageindex.com/ferenozcelik/swiftui-activity-grid).
 
 Then `import SwiftUIActivityGrid`.
 
