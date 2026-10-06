@@ -163,6 +163,10 @@ Formats: `.story` (1080×1920), `.square` (1080×1080), `.landscape` (1600×900)
 The image is made on the device. The card has no logo and no watermark.
 To get the data yourself, use `ActivityGridExporter.pngData(_:format:)`.
 
+<p align="center">
+  <img src="Docs/Images/share.png" width="260" alt="The Share page: choose a size and a range, see the card, tap Share">
+</p>
+
 ### Data saved in UTC
 
 Pass a UTC calendar. Then a value at 23:30 UTC stays on the right day.
