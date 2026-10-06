@@ -27,6 +27,7 @@ Make it look like your app. Pick the colors, the cell shape and size, or draw yo
 - Draw your own cells with `ActivityGridStyle`.
 - Tap a day to select it and see a tooltip.
 - Scroll, or fit all weeks to the width.
+- Export a card as PNG or PDF to share on social media.
 - No dependencies. No network. Nothing is stored.
 
 ## Customizable
@@ -146,6 +147,22 @@ ActivityGrid(values)
     .activityGridStyle(DotStyle())
 ```
 
+### Share as an image
+
+Add the button where you want it. Nothing is shown until you do.
+
+```swift
+ActivityGridShareButton("Share", fileName: "My year", format: .story) {
+    ActivityGridShareCard(format: .story, title: Text("My year of running"), footer: Text("my-app.com")) {
+        ActivityGrid(values)
+    }
+}
+```
+
+Formats: `.story` (1080×1920), `.square` (1080×1080), `.landscape` (1600×900), `.fitContent()` and `.custom(size:)`. Pass `fileType: .pdf` for a PDF.
+The image is made on the device. The card has no logo and no watermark.
+To get the data yourself, use `ActivityGridExporter.pngData(_:format:)` or `pdfData`.
+
 ### Data saved in UTC
 
 Pass a UTC calendar. Then a value at 23:30 UTC stays on the right day.
@@ -157,10 +174,6 @@ calendar.timeZone = .gmt
 ActivityGrid(values)
     .activityGridCalendar(calendar)
 ```
-
-### Years of data
-
-Build `ActivityGridData` once and pass it to `ActivityGrid(data)`.
 
 ## Playground
 

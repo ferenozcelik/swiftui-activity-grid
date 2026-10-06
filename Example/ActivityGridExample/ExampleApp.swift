@@ -29,6 +29,12 @@ struct ExampleList: View {
                 }
             }
 
+            Section("Share") {
+                NavigationLink { SharePage() } label: {
+                    ExampleRow("Share", detail: "Export a card for social media", symbol: "square.and.arrow.up", tint: .teal)
+                }
+            }
+
             Section("Showcase") {
                 NavigationLink { StylesPage() } label: {
                     ExampleRow("Styles", detail: "Built-in cell styles", symbol: "square.grid.3x3.fill", tint: .green)

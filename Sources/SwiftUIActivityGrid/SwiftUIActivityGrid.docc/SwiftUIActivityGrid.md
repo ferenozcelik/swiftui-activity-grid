@@ -40,6 +40,14 @@ Change colors, cell shape, size, spacing and labels, or write your own cell styl
 - ``EmptyCellStyle``
 - ``SelectionIndicator``
 
+### Sharing
+
+- ``ActivityGridShareButton``
+- ``ActivityGridShareCard``
+- ``ActivityGridExporter``
+- ``ActivityGridShareFormat``
+- ``ActivityGridExportFileType``
+
 ### Layout and labels
 
 - ``ActivityGridDisplayMode``
