@@ -21,7 +21,7 @@ Make it look like your app. Pick the colors, the cell shape and size, or draw yo
 ## Features
 
 - One view: `ActivityGrid`. Pass a `[Date: Double]` or your own types.
-- Show the last year, months, weeks or days, a year, a month, or your own dates.
+- Choose the dates: the last year, last months, weeks or days, one month, or your own start and end.
 - Change colors, cell shape, size and spacing.
 - Show, hide or change month labels, weekday labels and the legend.
 - Draw your own cells with `ActivityGridStyle`.
@@ -169,7 +169,7 @@ To get the data yourself, use `ActivityGridExporter.pngData(_:format:)`.
 
 ### Data saved in UTC
 
-Pass a UTC calendar. Then a value at 23:30 UTC stays on the right day.
+If your data uses UTC days, pass a UTC calendar. A value at 23:30 UTC then stays on its UTC day.
 
 ```swift
 var calendar = Calendar(identifier: .gregorian)

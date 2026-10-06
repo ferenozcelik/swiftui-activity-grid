@@ -32,10 +32,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Test
         run: |
+          # Use whichever iPhone simulator the runner image has, so a new image doesn't break this.
+          DEVICE=$(xcrun simctl list devices available iPhone | grep -m1 -oE '[0-9A-F]{8}-([0-9A-F]{4}-){3}[0-9A-F]{12}')
           xcodebuild test \
             -workspace SwiftUIActivityGrid.xcworkspace \
             -scheme SwiftUIActivityGrid \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest'
+            -destination "id=$DEVICE"
 
   example:
     name: Example app (iOS)
