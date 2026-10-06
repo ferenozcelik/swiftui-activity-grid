@@ -1,0 +1,270 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "Less": {
+      "comment": "Legend label before the lightest color.",
+      "extractionState": "manual",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Az"
+          }
+        }
+      }
+    },
+    "More": {
+      "comment": "Legend label after the darkest color.",
+      "extractionState": "manual",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çok"
+          }
+        }
+      }
+    },
+    "No activity": {
+      "comment": "Value of a day without activity, in the tooltip and VoiceOver.",
+      "extractionState": "manual",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etkinlik yok"
+          }
+        }
+      }
+    },
+    "%lld activities": {
+      "comment": "Default value text for a whole number. Neutral noun, not tied to a specific kind of activity.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld activity"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld activities"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld etkinlik"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld etkinlik"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%@ activities": {
+      "comment": "Default value text for a fractional number, e.g. 2.5.",
+      "extractionState": "manual",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ etkinlik"
+          }
+        }
+      }
+    },
+    "Level %lld of %lld": {
+      "comment": "VoiceOver: intensity level of a day, e.g. Level 3 of 4.",
+      "extractionState": "manual",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seviye %1$lld / %2$lld"
+          }
+        }
+      }
+    },
+    "Week of %@": {
+      "comment": "VoiceOver: label of a week column. The argument is the first day of the week.",
+      "extractionState": "manual",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ haftası"
+          }
+        }
+      }
+    },
+    "Activity, %@": {
+      "comment": "VoiceOver summary: the argument is the date range shown.",
+      "extractionState": "manual",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etkinlik, %@"
+          }
+        }
+      }
+    },
+    "%lld active days": {
+      "comment": "VoiceOver summary: number of days with activity.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld active day"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld active days"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld aktif gün"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld aktif gün"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Current streak: %lld days": {
+      "comment": "VoiceOver summary: current streak length.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Current streak: %lld day"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Current streak: %lld days"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Güncel seri: %lld gün"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Güncel seri: %lld gün"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Longest streak: %lld days": {
+      "comment": "VoiceOver summary: longest streak length.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Longest streak: %lld day"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Longest streak: %lld days"
+                }
+              }
+            }
+          }
+        },
+        "tr": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "En uzun seri: %lld gün"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "En uzun seri: %lld gün"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%@ · %@": {
+      "comment": "Tooltip text: date, then value. Example: Mar 4, 2025 · 5 activities.",
+      "extractionState": "manual",
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
