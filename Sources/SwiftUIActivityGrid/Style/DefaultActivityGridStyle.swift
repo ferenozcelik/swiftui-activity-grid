@@ -93,8 +93,8 @@ extension ActivityGridStyle where Self == DefaultActivityGridStyle {
     /// The default style: slightly rounded squares.
     public static var automatic: DefaultActivityGridStyle { DefaultActivityGridStyle() }
 
-    /// Small rounded squares with tight gaps, like a GitHub profile.
-    public static var github: DefaultActivityGridStyle {
+    /// Small rounded squares with tight gaps.
+    public static var squares: DefaultActivityGridStyle {
         DefaultActivityGridStyle(shape: .roundedRectangle(cornerRadius: 2), metrics: ActivityGridMetrics(cellSize: 11, spacing: 3))
     }
 

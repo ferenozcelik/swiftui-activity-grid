@@ -2,21 +2,41 @@ import Foundation
 
 /// Made-up activity that looks the same on every run.
 enum SampleData {
-    /// About `days` days of values ending today: busier on weekdays, some quiet weeks,
-    /// and a streak running up to yesterday.
-    static func values(days: Int = 400, seed: UInt64 = 7, now: Date = .now, calendar: Calendar = .current) -> [Date: Double] {
+    /// About `days` days of values ending today.
+    ///
+    /// Busier on weekdays, slow waves of busy and quiet weeks, a few rest weeks,
+    /// and a streak of `streak` days running up to today.
+    static func values(days: Int = 400, streak: Int = 23, seed: UInt64 = 7, now: Date = .now, calendar: Calendar = .current) -> [Date: Double] {
         var generator = SeededGenerator(seed: seed)
         var values: [Date: Double] = [:]
         let today = calendar.startOfDay(for: now)
 
-        for offset in 1..<days {
+        for offset in 0..<days {
             guard let day = calendar.date(byAdding: .day, value: -offset, to: today) else { continue }
+            let roll = Double.random(in: 0..<1, using: &generator)
+            let noise = Double.random(in: 0.55...1.35, using: &generator)
+
             let weekday = calendar.component(.weekday, from: day)
             let isWeekend = weekday == 1 || weekday == 7
-            let isQuietWeek = (offset / 7) % 9 == 4
-            let chance = offset <= 12 ? 1.0 : (isQuietWeek ? 0.15 : (isWeekend ? 0.35 : 0.75))
-            guard Double.random(in: 0..<1, using: &generator) < chance else { continue }
-            values[day.addingTimeInterval(9 * 3600)] = Double(Int.random(in: 1...12, using: &generator))
+            let isRestWeek = (offset / 7) % 11 == 6
+            // A slow wave between quiet (0.3) and busy (1.0) periods.
+            let wave = 0.65 + 0.35 * sin(Double(offset) / 19)
+
+            let chance: Double
+            if offset < streak || (150..<181).contains(offset) {
+                // The current streak, and an older, longer one.
+                chance = 1
+            } else if offset == streak || offset == 149 || offset == 181 {
+                chance = 0
+            } else {
+                chance = isRestWeek ? 0.12 : (isWeekend ? 0.4 : 0.82) * (0.6 + 0.4 * wave)
+            }
+            guard roll < chance else { continue }
+
+            // The streak builds up towards today.
+            let boost = offset < streak ? 0.7 + 0.5 * Double(streak - offset) / Double(streak) : 1
+            let value = (12 * wave * noise * boost * (isWeekend ? 0.7 : 1)).rounded()
+            values[day.addingTimeInterval(9 * 3600)] = min(max(value, 1), 14)
         }
         return values
     }

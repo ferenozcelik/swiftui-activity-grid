@@ -1,14 +1,14 @@
 # ``SwiftUIActivityGrid``
 
-A heatmap of daily values for SwiftUI, like the contribution graph on a GitHub profile.
+A heatmap of daily values for SwiftUI.
 
 ## Overview
 
-``ActivityGrid`` draws one cell per day and colors it by how much happened that day.
-You pass in the values; the grid stores nothing and makes no network calls.
+``ActivityGrid`` draws one cell per day. The color shows how much happened that day.
+You pass in the values. The grid stores nothing and makes no network calls.
 
-Days are grouped in your calendar and time zone, styles work like `ButtonStyle`,
-streaks and totals come built in, and every visible or spoken text can be replaced.
+Change colors, cell shape, size, spacing and labels, or write your own cell style.
+Streaks and totals are built in.
 
 ## Topics
 

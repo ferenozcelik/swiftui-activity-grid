@@ -73,11 +73,10 @@ ActivityGrid(minutesByDay)
 
 For a look of your own, write an ``ActivityGridStyle``.
 
-## Calendars, time zones and languages
+## Calendars and time zones
 
-The grid uses `Calendar.current` and the SwiftUI `locale` environment value unless you
-pass a calendar. If your data was recorded in UTC, pass a UTC calendar so late-evening
-entries stay on the right day:
+The grid uses `Calendar.current` unless you pass a calendar. If your data was recorded
+in UTC, pass a UTC calendar so late-evening entries stay on the right day:
 
 ```swift
 var calendar = Calendar(identifier: .gregorian)
@@ -87,10 +86,6 @@ calendar.firstWeekday = 2 // Monday
 ActivityGrid(minutesByDay)
     .activityGridCalendar(calendar)
 ```
-
-Month and weekday names come from the system for any language. The package's own texts
-are in English and Turkish; replace any of them with the `activityGridAccessibility…`,
-``ActivityGridLegend/bottomTrailing(less:more:)`` and value formatter modifiers.
 
 ## Lots of data
 

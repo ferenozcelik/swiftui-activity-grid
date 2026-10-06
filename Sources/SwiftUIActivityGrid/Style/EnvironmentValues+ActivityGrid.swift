@@ -192,7 +192,7 @@ extension View {
     /// ```swift
     /// var calendar = Calendar(identifier: .gregorian)
     /// calendar.timeZone = .gmt          // days were recorded in UTC
-    /// calendar.locale = Locale(identifier: "tr_TR")
+    /// calendar.locale = Locale(identifier: "de_DE")
     /// calendar.firstWeekday = 2         // Monday
     ///
     /// ActivityGrid(values)

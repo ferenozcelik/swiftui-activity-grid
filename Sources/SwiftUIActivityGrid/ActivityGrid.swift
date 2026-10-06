@@ -1,7 +1,7 @@
 import Combine
 import SwiftUI
 
-/// A heatmap of daily values, like the contribution graph on a GitHub profile.
+/// A heatmap of daily values.
 ///
 /// Pass your values and, optionally, a range. Everything else is set with
 /// `activityGrid…` modifiers, either on the grid or once on a container.
@@ -135,7 +135,7 @@ public struct ActivityGrid: View {
         var calendar = base
         if !hostDecidesLocale {
             // Without a host calendar, labels follow the SwiftUI locale. Unless the calendar's first
-            // weekday was set explicitly, it follows that locale too (Monday for Turkish).
+            // weekday was set explicitly, it follows that locale too (for example Monday in Germany).
             calendar.locale = locale
         }
         if let firstWeekday {

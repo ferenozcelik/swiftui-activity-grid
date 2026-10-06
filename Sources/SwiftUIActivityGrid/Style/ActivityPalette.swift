@@ -66,7 +66,7 @@ public struct ActivityPalette: Hashable, Sendable {
 // MARK: - Built-in palettes
 
 extension ActivityPalette {
-    /// GitHub-style greens. The default.
+    /// Greens. The default.
     public static let green = ActivityPalette(
         light: ActivityPalette(empty: Color(hex: 0xEBEDF0), levels: [0x9BE9A8, 0x40C463, 0x30A14E, 0x216E39].map(Color.init(hex:))),
         dark: ActivityPalette(empty: Color(hex: 0x161B22), levels: [0x0E4429, 0x006D32, 0x26A641, 0x39D353].map(Color.init(hex:)))
