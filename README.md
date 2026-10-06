@@ -8,11 +8,15 @@
 ![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen)
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
-A heatmap of daily values for SwiftUI. One cell per day. The color shows how much happened that day.
+A heatmap for SwiftUI. Show a year of daily activity at a glance: workouts, habits, journal entries, anything you count per day.
 
-Use it for workouts, habits, journal entries, or anything you count per day.
+Make it look like your app. Pick the colors, the cell shape and size, or draw your own cells.
 
-<!-- Screenshots from the example app go here. -->
+<p align="center">
+  <img src="Docs/Images/your-own-style.png" width="260" alt="A card with a purple gradient and a grid of white dots, titled Reading, 23 day streak">
+  <img src="Docs/Images/colors.png" width="260" alt="Eight color palettes and a gradient, each showing the same grid">
+  <img src="Docs/Images/styles.png" width="260" alt="Built-in styles: squares, rounded, circles, minimal and a custom mix">
+</p>
 
 ## Features
 
@@ -38,6 +42,12 @@ The grid adapts to your app's design. It looks like part of your app.
 - Cells: your own `ActivityGridStyle`, like a `ButtonStyle`.
 
 Set options on one grid, or once on a container for all grids inside it.
+
+<p align="center">
+  <img src="Docs/Images/shapes-and-sizes.png" width="260" alt="Cell shapes, empty cell styles, sizes and spacing">
+  <img src="Docs/Images/labels-and-legend.png" width="260" alt="Grids with different month labels, weekday labels and legends">
+  <img src="Docs/Images/ranges.png" width="260" alt="Grids for the last year, 6 months, one month, a custom range, 12 weeks and 30 days">
+</p>
 
 ## Requirements
 
@@ -153,6 +163,10 @@ ActivityGrid(values)
 
 The example app has a Playground page. Change options with controls. The page shows the Swift code for them. Copy the code into your app.
 
+<p align="center">
+  <img src="Docs/Images/playground.png" width="260" alt="The Playground page: a grid, the Swift code for it, and controls for range, style and palette">
+</p>
+
 1. Open `SwiftUIActivityGrid.xcworkspace` in Xcode.
 2. Run the `ActivityGridExample` scheme.
 3. Open **Playground**.
@@ -172,6 +186,10 @@ stats.total
 ```
 
 Works without the view, for example in a widget.
+
+<p align="center">
+  <img src="Docs/Images/streaks.png" width="260" alt="Streak, active days and total tiles above a grid, with the code that reads them">
+</p>
 
 With years of data, build `ActivityGridData` once and pass it to `ActivityGrid(data)`.
 

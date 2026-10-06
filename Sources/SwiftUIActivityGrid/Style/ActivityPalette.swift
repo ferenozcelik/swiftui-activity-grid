@@ -69,25 +69,25 @@ extension ActivityPalette {
     /// Greens. The default.
     public static let green = ActivityPalette(
         light: ActivityPalette(empty: Color(hex: 0xEBEDF0), levels: [0x9BE9A8, 0x40C463, 0x30A14E, 0x216E39].map(Color.init(hex:))),
-        dark: ActivityPalette(empty: Color(hex: 0x161B22), levels: [0x0E4429, 0x006D32, 0x26A641, 0x39D353].map(Color.init(hex:)))
+        dark: ActivityPalette(empty: Color(hex: 0x2B3138), levels: [0x0E4429, 0x006D32, 0x26A641, 0x39D353].map(Color.init(hex:)))
     )
 
     /// Blues.
     public static let blue = ActivityPalette(
         light: ActivityPalette(empty: Color(hex: 0xEBEDF0), levels: [0xBBDEFB, 0x64B5F6, 0x1E88E5, 0x0D47A1].map(Color.init(hex:))),
-        dark: ActivityPalette(empty: Color(hex: 0x161B22), levels: [0x0D2A4D, 0x1458A6, 0x2F81F7, 0x79C0FF].map(Color.init(hex:)))
+        dark: ActivityPalette(empty: Color(hex: 0x2B3138), levels: [0x0D2A4D, 0x1458A6, 0x2F81F7, 0x79C0FF].map(Color.init(hex:)))
     )
 
     /// Oranges.
     public static let orange = ActivityPalette(
         light: ActivityPalette(empty: Color(hex: 0xEBEDF0), levels: [0xFFE0B2, 0xFFB74D, 0xF57C00, 0xBF360C].map(Color.init(hex:))),
-        dark: ActivityPalette(empty: Color(hex: 0x161B22), levels: [0x4A2A0A, 0x8A4A0F, 0xD9771C, 0xFFB15C].map(Color.init(hex:)))
+        dark: ActivityPalette(empty: Color(hex: 0x2B3138), levels: [0x4A2A0A, 0x8A4A0F, 0xD9771C, 0xFFB15C].map(Color.init(hex:)))
     )
 
     /// Purples.
     public static let purple = ActivityPalette(
         light: ActivityPalette(empty: Color(hex: 0xEBEDF0), levels: [0xE1BEE7, 0xBA68C8, 0x8E24AA, 0x4A148C].map(Color.init(hex:))),
-        dark: ActivityPalette(empty: Color(hex: 0x161B22), levels: [0x3B1A4F, 0x6A2C91, 0xA35BD6, 0xD2A8FF].map(Color.init(hex:)))
+        dark: ActivityPalette(empty: Color(hex: 0x2B3138), levels: [0x3B1A4F, 0x6A2C91, 0xA35BD6, 0xD2A8FF].map(Color.init(hex:)))
     )
 
     /// Viridis, a palette that stays readable with the common kinds of color blindness.
@@ -95,13 +95,13 @@ extension ActivityPalette {
     /// More activity is darker in light mode and brighter in dark mode.
     public static let viridis = ActivityPalette(
         light: ActivityPalette(empty: Color(hex: 0xEBEDF0), levels: [0xFDE725, 0x5EC962, 0x21918C, 0x3B528B].map(Color.init(hex:))),
-        dark: ActivityPalette(empty: Color(hex: 0x161B22), levels: [0x3B528B, 0x21918C, 0x5EC962, 0xFDE725].map(Color.init(hex:)))
+        dark: ActivityPalette(empty: Color(hex: 0x2B3138), levels: [0x3B528B, 0x21918C, 0x5EC962, 0xFDE725].map(Color.init(hex:)))
     )
 
     /// Shades of gray.
     public static let monochrome = ActivityPalette(
         light: ActivityPalette(empty: Color(hex: 0xEBEDF0), levels: [0xBDBDBD, 0x8A8A8A, 0x575757, 0x262626].map(Color.init(hex:))),
-        dark: ActivityPalette(empty: Color(hex: 0x161B22), levels: [0x3A3A3A, 0x6B6B6B, 0xA3A3A3, 0xE6E6E6].map(Color.init(hex:)))
+        dark: ActivityPalette(empty: Color(hex: 0x2B3138), levels: [0x3A3A3A, 0x6B6B6B, 0xA3A3A3, 0xE6E6E6].map(Color.init(hex:)))
     )
 
     /// One color at increasing opacity, for example your app's accent color.
