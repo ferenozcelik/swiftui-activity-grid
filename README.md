@@ -9,7 +9,6 @@
 [![Swift versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fferenozcelik%2Fswiftui-activity-grid%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ferenozcelik/swiftui-activity-grid)
 [![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fferenozcelik%2Fswiftui-activity-grid%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/ferenozcelik/swiftui-activity-grid)
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fferenozcelik%2Fswiftui-activity-grid%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ferenozcelik/swiftui-activity-grid)
 
 A heatmap for SwiftUI. Show a year of daily activity at a glance: workouts, habits, journal entries, anything you count per day.
 
